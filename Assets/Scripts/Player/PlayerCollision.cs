@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerCollision : MonoBehaviour {
+
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float moveDashSpeed;
 	[SerializeField] private float moveTorque;
 	[SerializeField] private float jumpPower;
 
-	public Transform cameraObject;
+	[SerializeField] private Transform cameraObject;
 	private Rigidbody myRigidbody;
 
 	// ジャンプ入力が一度でもあったらtrue、着地したらfalse
