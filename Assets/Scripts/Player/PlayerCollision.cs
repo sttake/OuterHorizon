@@ -6,64 +6,45 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerCollision : MonoBehaviour {
 	[SerializeField] private float moveSpeed;
+	[SerializeField] private float moveDashSpeed;
 	[SerializeField] private float moveTorque;
 	[SerializeField] private float jumpPower;
 
 	public Transform cameraObject;
 	private Rigidbody myRigidbody;
 
-	///<summary>
-	///    ジャンプ入力が一度でもあったらtrue、着地したらfalse
-	///</summary>
+	// ジャンプ入力が一度でもあったらtrue、着地したらfalse
 	private bool isJumpInput = false;
 
-	///<summary>
-	///    ジャンプ処理が開始されたらtrue、着地したらfalse
-	///</summary>
+	// ジャンプ処理が開始されたらtrue、着地したらfalse
 	private bool isJumping = false;
 
-	///<summary>
-	///    連続で接地しているフレーム数
-	///</summary>
+	// 連続で接地しているフレーム数
 	private int flameOnGround = 0;
 
-	///<summary>
-	///    連続で接地していないフレーム数
-	///</summary>
+	// 連続で接地していないフレーム数
 	private int flameNotOnGround = 0;
 
-	///<summary>
-	///    何フレーム同じ状態が続いたら接地/非接地状態を切り替えるか
-	///</summary>
+	// 何フレーム同じ状態が続いたら接地/非接地状態を切り替えるか
 	private const int flameGroundStateChange = 5;
 
-	///<summary>
-	///    現在のプレイヤーと地面の間の距離
-	///</summary>
+	// 現在のプレイヤーと地面の間の距離
 	[SerializeField] private float groundDistance = 0f;
 
-	///<summary>
-	///    groundDistanceがこの値以下の場合接地していると判定する
-	///</summary>
+	// groundDistanceがこの値以下の場合接地していると判定する
 	private const float groundDistanceLimit = 0.01f;
 
-	///<summary>
-	///    接地判定用レイの発射位置オフセット
-	///</summary>
+	// 接地判定用レイの発射位置オフセット
 	private Vector3 raycastOffset  = new Vector3(0f, 0.005f - 1f, 0f);
 
-	///<summary>
-	///    接地判定用レイの最大長
-	///</summary>
+	// 接地判定用レイの最大長
 	private const float raycastLimitDistance = 100f;
 
 	void Start() {
 		myRigidbody = GetComponent<Rigidbody>();
 	}
 
-	///<summary>
-	///    Update()
-	///</summary>
+
 	private void Update() {
 		CheckGroundDistance(() => {
 			isJumpInput = false;
@@ -87,7 +68,8 @@ public class PlayerCollision : MonoBehaviour {
 		cameraForward.y = 0;
 		Vector3 cameraRight = Camera.main.transform.right;
 		cameraRight.y = 0;
-		Vector3 moveVector = (cameraForward.normalized * Input.GetAxis("MoveZ") + cameraRight.normalized * Input.GetAxis("MoveX")) * moveSpeed;
+		Vector3 moveVector = (cameraForward.normalized * Input.GetAxis("MoveZ") + cameraRight.normalized * Input.GetAxis("MoveX"))
+			* ((Input.GetAxisRaw("Dash") == 1) ? moveDashSpeed : moveSpeed);
 		Vector3 torque = myRigidbody.velocity;
 		torque.y = 0;
 
@@ -99,17 +81,13 @@ public class PlayerCollision : MonoBehaviour {
 		myRigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
 	}
 
-	///<summary>
-	///    ジャンプ入力チェック
-	///</summary>
+	// ジャンプ入力チェック
 	private bool CheckJumpInput() {
 		if (Input.GetButton("Jump")) return true;
 		return false;
 	}
 
-	///<summary>
-	///    接地判定
-	///</summary>
+	// 接地判定
 	private void CheckGroundDistance(UnityAction landingAction = null, UnityAction takeOffAction = null) {
 		
 		RaycastHit hit;
