@@ -21,8 +21,11 @@ public class PlayerCollision : MonoBehaviour {
 	// ジャンプ処理が開始されたらtrue、着地したらfalse
 	private bool isJumping = false;
 
-	// 連続で接地しているフレーム数
-	private int flameOnGround = 0;
+    // 接地していたらtrue、空中にいたらfalse
+    private bool isGround = true;
+
+    // 連続で接地しているフレーム数
+    private int flameOnGround = 0;
 
 	// 連続で接地していないフレーム数
 	private int flameNotOnGround = 0;
@@ -34,10 +37,10 @@ public class PlayerCollision : MonoBehaviour {
 	[SerializeField] private float groundDistance = 0f;
 
 	// groundDistanceがこの値以下の場合接地していると判定する
-	private const float groundDistanceLimit = 0.01f;
+	private const float groundDistanceLimit = 0.02f;
 
 	// 接地判定用レイの発射位置オフセット
-	private Vector3 raycastOffset  = new Vector3(0f, 0.005f - 1f, 0f);
+	private Vector3 raycastOffset  = new Vector3(0f, 0.015f - 1f, 0f);
 
 	// 接地判定用レイの最大長
 	private const float raycastLimitDistance = 100f;
@@ -75,8 +78,11 @@ public class PlayerCollision : MonoBehaviour {
 		Vector3 torque = myRigidbody.velocity;
 		torque.y = 0;
 
-		// if (moveForward != Vector3.zero) transform.rotation = Quaternion.LookRotation(moveForward);
-		myRigidbody.AddForce(moveTorque * (moveVector - torque));
+        if (!isGround) {
+            moveVector *= 0.2f;
+            torque *= 0.2f;
+        }
+        myRigidbody.AddForce(moveTorque * (moveVector - torque));
 	}
 
 	void Jump() {
@@ -130,10 +136,11 @@ public class PlayerCollision : MonoBehaviour {
 		// 状態が安定したものとして接地処理またはジャンプ処理を行う
 		if (flameGroundStateChange == flameOnGround && flameNotOnGround == 0) {
 			if (landingAction != null) landingAction();
-		} else
-		if (flameGroundStateChange == flameNotOnGround && flameOnGround == 0) {
+            isGround = true;
+        } else if (flameGroundStateChange == flameNotOnGround && flameOnGround == 0) {
 			if (takeOffAction != null) takeOffAction();
-		}
+            isGround = false;
+        }
 	}
 }
 
