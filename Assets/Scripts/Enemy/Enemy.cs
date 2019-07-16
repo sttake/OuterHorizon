@@ -6,9 +6,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
 	[SerializeField] private GameObject bulletObject;
+    private Character _character;
 
-	IEnumerator Start() {
-		while (true) {
+    IEnumerator Start() {
+        _character = GetComponent<Character>();
+        while (true) {
 			GenerateBullet();
 			yield return new WaitForSeconds(2f);
 		}
@@ -21,5 +23,9 @@ public class Enemy : MonoBehaviour {
 	void Update() {
 		
 	}
+
+	void OnTriggerEnter(Collider col) {
+		if(col.tag == "PlayerAttack") _character.Damage(3f);
+    }
 
 }

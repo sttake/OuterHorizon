@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 17439296}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17439294}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1495,8 +1495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98e2e1aa9e87364994d92a57eaefa2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
-  HP: 0
+  maxHP: 300
+  HP: 300
   HPbar: {fileID: 0}
 --- !u!1 &798134345
 GameObject:
@@ -2428,6 +2428,7 @@ MonoBehaviour:
   moveTorque: 5
   jumpPower: 5
   cameraObject: {fileID: 563356169}
+  swordObjectCollider: {fileID: 17439296}
   groundDistance: 0
 --- !u!114 &1511731746
 MonoBehaviour:

@@ -8,8 +8,10 @@ public class Bullet : MonoBehaviour {
 	private Vector3 targetPosition;
 	private Vector3 moveVector;
 	private Rigidbody myRigidbody;
+    [SerializeField] private int destroyCount;
+    private int destroyTimer = 0;
 
-	public void SetStatus(float speed) {
+    public void SetStatus(float speed) {
 		moveSpeed = speed;
 	}
 
@@ -22,5 +24,7 @@ public class Bullet : MonoBehaviour {
 
 	void FixedUpdate() {
 		myRigidbody.velocity = moveSpeed * moveVector;
-	}
+		if(destroyTimer >= destroyCount) Destroy(gameObject);
+		else destroyTimer++;
+    }
 }

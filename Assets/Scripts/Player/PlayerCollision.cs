@@ -8,6 +8,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Character))]
 public class PlayerCollision : MonoBehaviour {
 
+	private enum State {
+		Idle,
+		Damage,
+		Attack
+	};
+
 	#region プロパティ
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float moveDashSpeed;
@@ -15,8 +21,12 @@ public class PlayerCollision : MonoBehaviour {
 	[SerializeField] private float jumpPower;
 
 	[SerializeField] private Transform cameraObject;
-	private Rigidbody myRigidbody;
-    private Character character;
+	[SerializeField] private Collider swordObjectCollider;
+	private Rigidbody _rigidbody;
+	private Character _character;
+    private Animator _animator;
+
+    private State currentState = State.Idle;
 
     // ジャンプ入力が一度でもあったらtrue、着地したらfalse
     private bool isJumpInput = false;
@@ -51,19 +61,19 @@ public class PlayerCollision : MonoBehaviour {
 	#endregion
 
 	void Start() {
-		myRigidbody = GetComponent<Rigidbody>();
-        character = GetComponent<Character>();
+		_rigidbody = GetComponent<Rigidbody>();
+		_character = GetComponent<Character>();
+        _animator = GetComponent<Animator>();
     }
 
-	private void Update() {
+	void Update() {
 		CheckGroundDistance(() => {
 			isJumpInput = false;
 			isJumping = false;
 		});
 		if (isJumpInput || CheckJumpInput()) isJumpInput = true;
-
-        Attack();
-    }
+		if(Input.GetButtonDown("Attack")) SetState(State.Attack);
+	}
 
 	void FixedUpdate() {
 		Run();
@@ -80,18 +90,19 @@ public class PlayerCollision : MonoBehaviour {
 		cameraRight.y = 0;
 		Vector3 moveVector = (cameraForward.normalized * Input.GetAxis("MoveZ") + cameraRight.normalized * Input.GetAxis("MoveX"))
 			* ((Input.GetAxisRaw("Dash") == 1) ? moveDashSpeed : moveSpeed);
-		Vector3 torque = myRigidbody.velocity;
+		Vector3 torque = _rigidbody.velocity;
 		torque.y = 0;
 
 		if (!isGround) {
 			moveVector *= 0.2f;
 			torque *= 0.2f;
 		}
-		myRigidbody.AddForce(moveTorque * (moveVector - torque));
+		if(moveVector != Vector3.zero) transform.rotation = Quaternion.LookRotation(moveVector);
+        _rigidbody.AddForce(moveTorque * (moveVector - torque));
 	}
 
 	void Jump() {
-		myRigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+		_rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
 	}
 
 	/* ============ ジャンプ入力チェック ============ */
@@ -149,14 +160,36 @@ public class PlayerCollision : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-        character.Damage(5f);
+		_character.Damage(5f);
+	}
+
+	void SetState(State state) {
+		switch(state) {
+			case State.Idle:
+                currentState = State.Idle;
+                break;
+				
+			case State.Attack:
+                currentState = State.Attack;
+				_animator.SetTrigger("Attack");
+                break;
+				
+			case State.Damage:
+				currentState = State.Damage;
+				_animator.SetTrigger("Damage");
+                break;
+        }
+	}
+
+	/* 剣を振った時にColliderを有効/無効にするアニメーションイベント */
+	/* ※ 後で別スクリプトに分割します */
+	void StartSwordAnimation() {
+        swordObjectCollider.enabled = true;
     }
 
-	void Attack() {
-		if(Input.GetAxisRaw("Attack") == 1) {
-			
-		}
-	}
+	void EndSwordAnimation() {
+        swordObjectCollider.enabled = false;
+    }
 
 }
 
