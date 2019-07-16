@@ -5,8 +5,10 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Character))]
 public class PlayerCollision : MonoBehaviour {
 
+	#region プロパティ
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float moveDashSpeed;
 	[SerializeField] private float moveTorque;
@@ -14,18 +16,19 @@ public class PlayerCollision : MonoBehaviour {
 
 	[SerializeField] private Transform cameraObject;
 	private Rigidbody myRigidbody;
+    private Character character;
 
-	// ジャンプ入力が一度でもあったらtrue、着地したらfalse
-	private bool isJumpInput = false;
+    // ジャンプ入力が一度でもあったらtrue、着地したらfalse
+    private bool isJumpInput = false;
 
 	// ジャンプ処理が開始されたらtrue、着地したらfalse
 	private bool isJumping = false;
 
-    // 接地していたらtrue、空中にいたらfalse
-    private bool isGround = true;
+	// 接地していたらtrue、空中にいたらfalse
+	private bool isGround = true;
 
-    // 連続で接地しているフレーム数
-    private int flameOnGround = 0;
+	// 連続で接地しているフレーム数
+	private int flameOnGround = 0;
 
 	// 連続で接地していないフレーム数
 	private int flameNotOnGround = 0;
@@ -45,20 +48,22 @@ public class PlayerCollision : MonoBehaviour {
 	// 接地判定用レイの最大長
 	private const float raycastLimitDistance = 100f;
 
+	#endregion
+
 	void Start() {
 		myRigidbody = GetComponent<Rigidbody>();
-	}
-
+        character = GetComponent<Character>();
+    }
 
 	private void Update() {
 		CheckGroundDistance(() => {
 			isJumpInput = false;
 			isJumping = false;
 		});
-
-		// 既にジャンプ入力が行われていたら、ジャンプ入力チェックを飛ばす
 		if (isJumpInput || CheckJumpInput()) isJumpInput = true;
-	}
+
+        Attack();
+    }
 
 	void FixedUpdate() {
 		Run();
@@ -78,24 +83,24 @@ public class PlayerCollision : MonoBehaviour {
 		Vector3 torque = myRigidbody.velocity;
 		torque.y = 0;
 
-        if (!isGround) {
-            moveVector *= 0.2f;
-            torque *= 0.2f;
-        }
-        myRigidbody.AddForce(moveTorque * (moveVector - torque));
+		if (!isGround) {
+			moveVector *= 0.2f;
+			torque *= 0.2f;
+		}
+		myRigidbody.AddForce(moveTorque * (moveVector - torque));
 	}
 
 	void Jump() {
 		myRigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
 	}
 
-	// ジャンプ入力チェック
+	/* ============ ジャンプ入力チェック ============ */
 	private bool CheckJumpInput() {
 		if (Input.GetButton("Jump")) return true;
 		return false;
 	}
 
-	// 接地判定
+	/* ============ 接地判定 ============ */
 	private void CheckGroundDistance(UnityAction landingAction = null, UnityAction takeOffAction = null) {
 		
 		RaycastHit hit;
@@ -136,11 +141,22 @@ public class PlayerCollision : MonoBehaviour {
 		// 状態が安定したものとして接地処理またはジャンプ処理を行う
 		if (flameGroundStateChange == flameOnGround && flameNotOnGround == 0) {
 			if (landingAction != null) landingAction();
-            isGround = true;
-        } else if (flameGroundStateChange == flameNotOnGround && flameOnGround == 0) {
+			isGround = true;
+		} else if (flameGroundStateChange == flameNotOnGround && flameOnGround == 0) {
 			if (takeOffAction != null) takeOffAction();
-            isGround = false;
-        }
+			isGround = false;
+		}
 	}
+
+	void OnTriggerEnter(Collider col) {
+        character.Damage(5f);
+    }
+
+	void Attack() {
+		if(Input.GetAxisRaw("Attack") == 1) {
+			
+		}
+	}
+
 }
 

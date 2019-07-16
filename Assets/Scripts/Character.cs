@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour {
 
+    [SerializeField] private float maxHP;
     [SerializeField] private float HP;
     [SerializeField] private Slider HPbar;
 
@@ -15,11 +16,16 @@ public class Character : MonoBehaviour {
 	}
 
 	void Update() {
-		
-	}
+        if(HPbar != null) UpdateHPbar();
+    }
 
-    void Damage(float damage, UnityAction action = null) {
+    public void Damage(float damage, UnityAction action = null) {
         HP -= damage;
+    }
+
+    void UpdateHPbar() {
+        HPbar.maxValue = maxHP;
+        HPbar.SetValueWithoutNotify(HP);
     }
 
 }
