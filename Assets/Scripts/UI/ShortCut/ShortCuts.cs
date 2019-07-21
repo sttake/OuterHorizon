@@ -18,6 +18,7 @@ public class ShortCuts : MonoBehaviour {
     void Update() {
         GetInput();
         ChangeActiveItem();
+        SubmitItem();
     }
 
     void GetInput() {
@@ -35,6 +36,12 @@ public class ShortCuts : MonoBehaviour {
         shortcutItems[prevItem].SetBool("isActive", false);
         shortcutItems[currentItem].SetBool("isActive", true);
         prevItem = currentItem;
+    }
+
+    void SubmitItem() {
+        if(Input.GetButtonDown("ShortcutSubmit")) {
+            shortcutItems[currentItem].SetTrigger("Submit");
+        }
     }
 
 }
