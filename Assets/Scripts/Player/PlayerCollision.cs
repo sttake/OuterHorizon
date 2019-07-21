@@ -6,11 +6,9 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Character))]
-public class PlayerCollision : MonoBehaviour
-{
+public class PlayerCollision : MonoBehaviour {
 
-    private enum State
-    {
+    private enum State {
         Idle,
         Damage,
         Attack
@@ -201,7 +199,6 @@ public class PlayerCollision : MonoBehaviour
 
     public void SetRotateEnable(int is_enable) {
         isRotateEnable = (is_enable != 0);
-        Debug.Log(is_enable);
     }
 
     public void SetRotateEnable(bool is_enable) {

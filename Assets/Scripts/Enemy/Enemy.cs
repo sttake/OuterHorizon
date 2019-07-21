@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] private GameObject bulletObject = null;
+    [SerializeField] private GameObject damageParticle = null;
     [SerializeField] private GameObject combatTarget = null;
     private Character _character;
 
@@ -27,7 +28,11 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider col) {
-        if(col.tag == "PlayerAttack") _character.Damage(3f);
+        if (col.tag == "PlayerAttack") {
+            _character.Damage(3f);
+            Instantiate(damageParticle, col.ClosestPointOnBounds(this.transform.position), Quaternion.LookRotation(Vector3.up));
+            DamageTextController.CreateDamageText("3", transform);
+        }
     }
 
     void DeadCheck() {
