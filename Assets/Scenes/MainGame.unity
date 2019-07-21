@@ -591,8 +591,9 @@ GameObject:
   - component: {fileID: 221009753}
   - component: {fileID: 221009755}
   - component: {fileID: 221009754}
+  - component: {fileID: 221009756}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,6 +655,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221009752}
   m_CullTransparentMesh: 0
+--- !u!95 &221009756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221009752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &380015799
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,8 +972,9 @@ GameObject:
   - component: {fileID: 527484952}
   - component: {fileID: 527484954}
   - component: {fileID: 527484953}
+  - component: {fileID: 527484955}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1015,6 +1036,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527484951}
   m_CullTransparentMesh: 0
+--- !u!95 &527484955
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527484951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &563356166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1107,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 47
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1092,8 +1132,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563356166}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.14521335, y: -0.00000017017308, z: 0.000000024324445, w: 0.9894004}
+  m_LocalPosition: {x: 0, y: 4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1141,8 +1181,9 @@ GameObject:
   - component: {fileID: 577781829}
   - component: {fileID: 577781831}
   - component: {fileID: 577781830}
+  - component: {fileID: 577781832}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1204,6 +1245,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577781828}
   m_CullTransparentMesh: 0
+--- !u!95 &577781832
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577781828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &619024565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,8 +1358,9 @@ GameObject:
   - component: {fileID: 737424233}
   - component: {fileID: 737424235}
   - component: {fileID: 737424234}
+  - component: {fileID: 737424236}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1361,6 +1422,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737424232}
   m_CullTransparentMesh: 0
+--- !u!95 &737424236
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737424232}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &783872055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,8 +1595,9 @@ GameObject:
   - component: {fileID: 798134346}
   - component: {fileID: 798134348}
   - component: {fileID: 798134347}
+  - component: {fileID: 798134349}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1578,6 +1659,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798134345}
   m_CullTransparentMesh: 0
+--- !u!95 &798134349
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798134345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &798885460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,8 +1689,9 @@ GameObject:
   - component: {fileID: 798885461}
   - component: {fileID: 798885463}
   - component: {fileID: 798885462}
+  - component: {fileID: 798885464}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1652,6 +1753,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798885460}
   m_CullTransparentMesh: 0
+--- !u!95 &798885464
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798885460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &812771770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,8 +2102,9 @@ GameObject:
   - component: {fileID: 1039169276}
   - component: {fileID: 1039169278}
   - component: {fileID: 1039169277}
+  - component: {fileID: 1039169279}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2045,6 +2166,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039169275}
   m_CullTransparentMesh: 0
+--- !u!95 &1039169279
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039169275}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1061058704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,8 +2372,9 @@ GameObject:
   - component: {fileID: 1338156085}
   - component: {fileID: 1338156087}
   - component: {fileID: 1338156086}
+  - component: {fileID: 1338156088}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2295,6 +2436,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338156084}
   m_CullTransparentMesh: 0
+--- !u!95 &1338156088
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338156084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1396166605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,8 +2689,9 @@ GameObject:
   - component: {fileID: 1750239593}
   - component: {fileID: 1750239595}
   - component: {fileID: 1750239594}
+  - component: {fileID: 1750239596}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2592,6 +2753,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750239592}
   m_CullTransparentMesh: 0
+--- !u!95 &1750239596
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750239592}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1755034441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1902392073}
+  - component: {fileID: 1902392074}
   m_Layer: 5
   m_Name: ShortCuts
   m_TagString: Untagged
@@ -2702,6 +2883,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 890, y: 100}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &1902392074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902392072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d2459a7e7f0cc4aa5cdf26ec102074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentItem: 0
+  shortcutItems:
+  - {fileID: 1338156088}
+  - {fileID: 1750239596}
+  - {fileID: 798134349}
+  - {fileID: 2088719322}
+  - {fileID: 221009756}
+  - {fileID: 798885464}
+  - {fileID: 527484955}
+  - {fileID: 1039169279}
+  - {fileID: 737424236}
+  - {fileID: 577781832}
 --- !u!1 &1950030297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,8 +3195,9 @@ GameObject:
   - component: {fileID: 2088719319}
   - component: {fileID: 2088719321}
   - component: {fileID: 2088719320}
+  - component: {fileID: 2088719322}
   m_Layer: 5
-  m_Name: ShortCutIcon
+  m_Name: ShortCutIcon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3053,6 +3259,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088719318}
   m_CullTransparentMesh: 0
+--- !u!95 &2088719322
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088719318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14f4bd2183087884b93e154354ab0aa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2127616719
 GameObject:
   m_ObjectHideFlags: 0
