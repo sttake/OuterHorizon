@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ShortCut : MonoBehaviour {
 
-    [SerializeField] private ActionBase action;
+    [SerializeField] private ActionBase action = null;
     [SerializeField] private Image imageObject = null;
 
     private Character player;
@@ -16,7 +16,7 @@ public class ShortCut : MonoBehaviour {
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         _animator = GetComponent<Animator>();
-        if (!(itemSprite = Resources.Load<Sprite>("UI/" + action.GetType().Name))) return;
+        if (action == null || !(itemSprite = Resources.Load<Sprite>("UI/" + action.GetType().Name))) return;
         imageObject.sprite = itemSprite;
         imageObject.enabled = true;
     }

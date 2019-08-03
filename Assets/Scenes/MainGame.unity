@@ -1786,7 +1786,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563356166}
-  m_LocalRotation: {x: 0.06316147, y: 0, z: 0, w: 0.9980033}
+  m_LocalRotation: {x: 0.063160785, y: 0, z: 0, w: 0.99800336}
   m_LocalPosition: {x: 0, y: 3, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2173,7 +2173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 300
-  HP: 300
+  defaultHP: 300
   HPbar: {fileID: 0}
 --- !u!1 &805513929
 GameObject:
@@ -3443,7 +3443,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321051520}
-  m_LocalRotation: {x: 0.06316107, y: -0, z: -0, w: 0.9980034}
+  m_LocalRotation: {x: 0.06316065, y: -0, z: -0, w: 0.9980034}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4521,7 +4521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  HP: 100
+  defaultHP: 100
   HPbar: {fileID: 423514785}
 --- !u!95 &2032476302
 Animator:

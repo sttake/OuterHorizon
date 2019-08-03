@@ -5,7 +5,7 @@ using UnityEngine;
 public class Beam : ActionBase {
 
     override public void Action(Character chara) {
-        chara.HP -= 20;
+        chara.AddHP(-35f);
     }
 
 }
