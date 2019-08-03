@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour {
         _character = GetComponent<Character>();
         while (true) {
             GenerateBullet();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(30f);
         }
     }
 
@@ -29,9 +29,9 @@ public class Enemy : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) {
         if (col.tag == "PlayerAttack") {
-            _character.Damage(3f);
+            _character.Damage(144f);
             Instantiate(damageParticle, col.ClosestPointOnBounds(this.transform.position), Quaternion.LookRotation(Vector3.up));
-            DamageTextController.CreateDamageText("3", transform);
+            DamageTextController.CreateDamageText("144", transform);
         }
     }
 
