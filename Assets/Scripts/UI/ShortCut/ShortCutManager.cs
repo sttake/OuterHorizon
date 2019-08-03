@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShortCuts : MonoBehaviour {
+public class ShortCutManager : MonoBehaviour {
 
-    [SerializeField] private int currentItem = 0;
-    [SerializeField] private Animator[] shortcutItems = null;
-    private int prevItem;
+    [SerializeField] private int currentCursor = 0;
+    [SerializeField] private ShortCut[] shortcutIcons = null;
+    private int prevCursor;
     private const int shortcutMax = 10;
     private float prevInput = 0;
     private float currentInput = 0;
 
     void Start() {
-        shortcutItems[currentItem].SetBool("isActive", true);
+        shortcutIcons[currentCursor].SetActive(true);
     }
 
     void Update() {
@@ -30,17 +30,17 @@ public class ShortCuts : MonoBehaviour {
 
     void ChangeActiveItem() {
         if(currentInput == 0) return;
-        else if(currentInput == 1) currentItem++;
-        else currentItem += shortcutMax - 1;
-        currentItem %= shortcutMax;
-        shortcutItems[prevItem].SetBool("isActive", false);
-        shortcutItems[currentItem].SetBool("isActive", true);
-        prevItem = currentItem;
+        else if(currentInput == 1) currentCursor++;
+        else currentCursor += shortcutMax - 1;
+        currentCursor %= shortcutMax;
+        shortcutIcons[prevCursor].SetActive(false);
+        shortcutIcons[currentCursor].SetActive(true);
+        prevCursor = currentCursor;
     }
 
     void SubmitItem() {
         if(Input.GetButtonDown("ShortcutSubmit")) {
-            shortcutItems[currentItem].SetTrigger("Submit");
+            shortcutIcons[currentCursor].Submit();
         }
     }
 
