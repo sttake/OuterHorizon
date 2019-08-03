@@ -1229,6 +1229,12 @@ PrefabInstance:
       propertyPath: itemName
       value: Beam
       objectReference: {fileID: 0}
+    - target: {fileID: 5613183367628924218, guid: 08f4f14e614a6574eb32ae74b82d9b0a,
+        type: 3}
+      propertyPath: action
+      value: 
+      objectReference: {fileID: 9021718967349222850, guid: aa82699881402f34f95a039c5b081c6d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08f4f14e614a6574eb32ae74b82d9b0a, type: 3}
 --- !u!224 &341910119 stripped
@@ -2309,7 +2315,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &812771771
 MonoBehaviour:
@@ -2331,7 +2337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812771770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3437,7 +3443,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321051520}
-  m_LocalRotation: {x: 0.06316115, y: -0, z: -0, w: 0.99800336}
+  m_LocalRotation: {x: 0.06316107, y: -0, z: -0, w: 0.9980034}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4870,6 +4876,12 @@ PrefabInstance:
       propertyPath: itemName
       value: HealLeaf
       objectReference: {fileID: 0}
+    - target: {fileID: 5613183367628924218, guid: 08f4f14e614a6574eb32ae74b82d9b0a,
+        type: 3}
+      propertyPath: action
+      value: 
+      objectReference: {fileID: 6577312296198287089, guid: 22062070882e8bd489eec2868a759b26,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08f4f14e614a6574eb32ae74b82d9b0a, type: 3}
 --- !u!1001 &2023061449350863565
